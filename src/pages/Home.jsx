@@ -10,11 +10,12 @@ function Home(){
     return(
         <div className="container">
             <h1>Product Catalog</h1>
+            
             {Object.keys(grouped).map((category) => (
                 <CategorySection
-                    key = {category}
-                    tile = {category}
-                    items = {grouped[category]}
+                    key={category}
+                    title={category}
+                    items={grouped[category]}
                 />
             ))}
         </div>
