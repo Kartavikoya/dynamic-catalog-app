@@ -1,31 +1,32 @@
 Product Catalog App
 A responsive React application for browsing and searching a product catalog. Built with React, React Router, and Vite for fast development and modern web standards.
 
-Features
+**Features**
 
-Product Search: Search across product names, categories, and specifications
+**Product Search:** Search across product names, categories, and specifications
 
-Category Filtering: Browse products by category with an "All" option to view everything
+**Category Filtering:** Browse products by category with an "All" option to view everything
 
-Responsive Design: Optimized for desktop, tablet, and mobile devices
+**Responsive Design:** Optimized for desktop, tablet, and mobile devices
 
-Product Cards: Detailed cards with images, badges, and previews
+**Product Cards:** Detailed cards with images, badges, and previews
 
-Fast Navigation: Smooth routing between product details and categories
+**Fast Navigation:** Smooth routing between product details and categories
 
-Tech Stack
-React: 19.2.5 - Component-based UI library
-React Router: 7.14.2 - Client-side routing
-Vite: Fast build tool and development server
-CSS: Custom properties for theming, Grid/Flexbox layouts, responsive media queries
+**Tech Stack**
 
-Getting Started
+**React:** 19.2.5 - Component-based UI library
+**React Router:** 7.14.2 - Client-side routing
+**Vite:** Fast build tool and development server
+**CSS:** Custom properties for theming, Grid/Flexbox layouts, responsive media queries
+
+**Getting Started**
 
 Prerequisites
 Node.js (version 18 or higher)
 npm or yarn
 
-Installation
+**Installation**
     1. Clone the repository:
         git clone https://github.com/Kartavikoya/dynamic-catalog-app.git
         cd catalog-app
@@ -42,7 +43,7 @@ Installation
 
 The built files will be in the dist directory.
 
-Project Structure
+**Project Structure**
 
 src/
 ├── components/
