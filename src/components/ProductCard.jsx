@@ -19,7 +19,7 @@ function ProductCard({ item }) {
             
             <img src={item.image} alt={item.itemname} />
             <div className="card-body">
-                <span className="card-badge">{item.category}</span>
+                {/* <span className="card-badge">{item.category}</span> */}
                 <h3>{item.itemname}</h3>
                 <p className="card-preview">{preview}</p>
             </div>
