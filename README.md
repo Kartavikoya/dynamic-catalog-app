@@ -27,7 +27,7 @@ npm or yarn
 
 Installation
     1. Clone the repository:
-        git clone <repository-url>
+        git clone https://github.com/Kartavikoya/dynamic-catalog-app.git
         cd catalog-app
 
     2. Install dependencies:
