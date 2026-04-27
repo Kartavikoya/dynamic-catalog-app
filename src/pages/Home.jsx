@@ -7,25 +7,31 @@ function Home() {
         return data.reduce((acc, item) => {
             if (!acc[item.category]) acc[item.category] = [];
             acc[item.category].push(item);
+            
             return acc;
         }, {});
     }, []);
 
-    const categories = Object.keys(grouped);
-    const [activeCategory, setActiveCategory] = useState(categories[0] ||'');
+    console.log(grouped,"gropued");
+    
+
+    const categories = ['All', ...Object.keys(grouped)];
+    const [activeCategory, setActiveCategory] = useState('All');
     const [searchTerm, setSearchTerm] = useState('');
 
     const visibleItems = useMemo(() => {
         const normalized = searchTerm.trim().toLowerCase();
+        const matchesCategory = (item) =>
+        activeCategory === 'All' || item.category === activeCategory;
         if (normalized) {
             return data.filter((item) => {
                 const itemText = [item.itemname, item.category, ...item.itemprops.map((prop) => `${prop.label} ${prop.value}`)]
                     .join(' ')
                     .toLowerCase();
-                return itemText.includes(normalized) && item.category === activeCategory;
+                return itemText.includes(normalized) && matchesCategory(item);
             });
         }
-        return activeCategory ? grouped[activeCategory] || [] : [];
+    return activeCategory === 'All' ? data : grouped[activeCategory] || [];
     }, [searchTerm, activeCategory, grouped]);
 
     const searchCategory = useMemo(() => {
@@ -35,7 +41,12 @@ function Home() {
     }, [searchTerm, visibleItems]);
 
     const activeTab = searchTerm && searchCategory ? searchCategory : activeCategory;
-    const sectionTitle = searchTerm ? (searchCategory ? searchCategory : 'Search Results') : activeCategory;
+    // const sectionTitle = searchTerm ? (searchCategory ? searchCategory : 'Search Results') : activeCategory;
+    const sectionTitle = searchTerm
+    ? (searchCategory ? searchCategory : 'Search Results')
+    : activeCategory === 'All'
+        ? 'All Products'
+        : activeCategory;
     const showResults = Boolean(searchTerm || activeCategory);
 
     return (
@@ -64,15 +75,15 @@ function Home() {
                 <div className="content-area">
                     <div className="home-header">
                         <div className="search-wrap">
-                            <label htmlFor="catalog-search" className="search-label">
+                            {/* <label htmlFor="catalog-search" className="search-label">
                                 Search products, categories, or specs
-                            </label>
+                            </label> */}
                             <input
                                 id="catalog-search"
                                 type="search"
                                 value={searchTerm}
                                 onChange={(event) => setSearchTerm(event.target.value)}
-                                placeholder="Search items, brands, or features"
+                                placeholder="Search your products"
                             />
                         </div>
                     </div>
